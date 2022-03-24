@@ -2,7 +2,7 @@
 %Part C: Solution - Surrogate Approach - EXPENSIVE FUNCTION
 %---------------PARALLEL POOL SETUP----------------------------------------
 tic %start timer
-nProcess = 10; %number of process workers to instantiate for parpool - with current settings only 10 are needed for maximum speed ~2.5hours
+nProcess = 32; %number of process workers to instantiate for parpool
 parpool('local', nProcess); %!!!! - This will give ERROR if a pool already EXISTS - !!!! - fix: shut down existing parpool
 %---------------INITAL SETUP-----------------------------------------------
 clear all %#ok<CLALL>     %clearing
