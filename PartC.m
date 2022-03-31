@@ -94,7 +94,7 @@ while size(yKept1,1)< (MaxEval - nn) && ng<430
     end    
     
 end
-
+toc; %stop timer
 close all;
 figure(1); xlabel('F-1');ylabel('F-2');title('Pareto Fronts'); hold on; %Creating final figure for pareto fronts
 save('expensivefront.mat','X','FVAL','POPULATION','SCORE','-mat');
@@ -111,5 +111,5 @@ figure(1);
 scatter(FVAL(:,1),FVAL(:,2)); hold on;%Plotting front
 scatter(FVAL_TRUE(:,1),FVAL_TRUE(:,2));
 legend('Surrogate','Expensive Function');
-toc; %stop timer
+
 disp('PART C - SURROGATE OPTIMISATION - EXPENSIVE FUNCTION - ROUTINE FINISHED');
