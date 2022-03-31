@@ -23,12 +23,13 @@ FITNESSFCN=@(x) [fg_1(x);fg_2(x)]; %Combining F1 and F2 Surrogates for multiobje
 
 outputF = {};
 outputX = outputF;
+outputFeval = [];
 
 nRuns = 10;
 
 for parloop = 1:nRuns
  %start timer
-clearvars -except ndim ub outputF outputX parloop colours dots FITNESSFCN nRuns %initial setup - clearing
+clearvars -except ndim ub outputF outputX parloop colours dots FITNESSFCN nRuns outputFeval %initial setup - clearing
 close all
 clc
 
@@ -95,7 +96,7 @@ while size(yKept1,1)< (MaxEval - nn) && ng<430
         else
             naddZ=0;
         end
-        disp([size(yKept1, 1) nadd naddZ ng])
+        disp([size(yKept1, 1) nadd naddZ ng ngmax parloop])
     end    
     
 end
@@ -103,6 +104,7 @@ end
 %store outputs from 1-10 run    
 outputF{parloop} = FVAL;
 outputX{parloop} = X;
+outputFeval(parloop) = size(yKept1, 1);
 
 end %end for
 

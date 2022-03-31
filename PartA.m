@@ -12,7 +12,6 @@ lb = zeros(1,6); ub = ones(1,6);
 %Function Handle
 ub_Scale = [10, 50, 200, 1000, 5000, 20000]; %true upper bounds for scaling
 Fn = @(x) AuxModel(x .*ub_Scale);
-
 popsize = 50; %GA optimisation options
 maxgen = round(maxEval/popsize); ftol = 1e-5;
 optionsGA = optimoptions('gamultiobj', 'TolFun',ftol, 'PopulationSize',popsize, 'MaxGenerations',maxgen, 'PlotFcn',@gaplotpareto, 'Display','off');
